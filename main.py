@@ -4,6 +4,12 @@ import pandas as pd
 import numpy as np
 import time
 
+
+def tratamento_df(dataframe):
+    dataframe['num_pages'].fillna(0, inplace=True)
+    dataframe['num_pages'] = dataframe['num_pages'].astype('int')
+    return dataframe
+
 def pagina_inicial(dataframe):
     st.write(""" # Book-se 📚
         Este é um projeto de alunos da faculdade UFRPE, para a cadeira de projeto 3.
@@ -38,9 +44,22 @@ def livros_por_categoria(dataframe):
     do que as outras, dado que um livro pode ter mais de uma categoria, dividido por vírgula,
         e que esta categoria é uma categoria muito em alta nos livros, isso pode não ser
         uma desvantagem.''')
+def livros_por_pagina(dataframe):
+    st.title("""Livros por quantidade de páginas📘
+    Abaixo está uma tabela ordenada de forma descrescente em relação a quantidade
+     de páginas do livro, com suas respectivas notas.""")
+    quantidade_de_pag_por_livro = dataframe[['title', 'categories', 'num_pages', 'average_rating']].sort_values('num_pages', ascending = False)
+    st.dataframe(quantidade_de_pag_por_livro)
+    st.title('''Livros com grande quantidade de páginas estão bem avalidos ? 🤔
+        Para isso, vamos considerar que um livro "grande" seria um livro 
+    com mais de 1000 páginas, estes livros estão listados abaixo.''')
+    df_gt_1000 = quantidade_de_pag_por_livro.query('num_pages > 1000')
+    st.dataframe(df_gt_1000[['title', 'categories', 'num_pages', 'average_rating']])
+    "(PAREI AQUI, ALEXANDRE)A minha ideia aqui é comparar a média das notas desses livros, com a média de todos os livros, e a média dos livros melhores avaliados"
 
 if __name__ == '__main__':
     dataframe = pd.read_csv("books.csv")
+    dataframe = tratamento_df(dataframe)
     sidebar = st.sidebar
     my_page = st.sidebar.radio('Análises', ['Página inicial 📚' ,'Livros por categoria 📗', 'Livros por quantidade de páginas 📘'])
     if my_page == 'Página inicial 📚':
@@ -48,5 +67,4 @@ if __name__ == '__main__':
     if my_page == 'Livros por categoria 📗':
         estudo1 = livros_por_categoria(dataframe)
     if my_page == 'Livros por quantidade de páginas 📘':
-        pass
-        #estudo2 = sua função aqui
+        estudo2 = livros_por_pagina(dataframe)
