@@ -1,5 +1,7 @@
 import streamlit as st
 def livros_por_categoria(dataframe):
+    st.write("FAZER TRATAMENTO DE CATEGORIAS COM >= SETE LIVROS, TROCAR POR 'OUTROS'")
+    st.write("CRIAR UM DATAFRAME COM AS MÉDIAS, QTD DE LIVROS, E FAZER UMA ANÁLISE")
     todas_categorias = dataframe['categories'].str.get_dummies(',')
     todas_categorias_list = list(todas_categorias)
     todas_categorias_list = list(map(lambda x: x.lstrip(),todas_categorias_list))
