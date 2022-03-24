@@ -1,9 +1,9 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
-import plotly.figure_factory as ff
+#import plotly.figure_factory as ff
 import numpy as np
-import scipy
+#import scipy
 from livros_por_ano import livros_por_ano_publi
 from tratamento_dataframe import tratamento_df
 from pagina_inicial import pagina_inicial

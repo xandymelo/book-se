@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
-import plotly.figure_factory as ff
+
 import numpy as np
 def livros_por_ano_publi(dataframe):
     st.title("""Livros por ano de publicação🗓️
@@ -31,7 +31,7 @@ def livros_por_ano_publi(dataframe):
              É possivel observar que a realidade é exatamente o contrario: os livros com uma maior quantidade de páginas são exatamente os mais recentes enquanto que ao longo do aumento da idade do livro sua quantidade de páginas tende a se estabilizar entre 500 e 1000.
              ''')
     
-    st.title('''Livros mais antigos possuem uma médias de avaliação maiores do que as médias dos livros mais atuais❓
+    st.title('''Livros mais antigos possuem uma média de avaliação maior do que a média dos livros mais atuais❓
              ''')
     st.write('''
              Para isso, serão considerados como mais antigos os livros de 1850 a 1940 enquantos os mais atuais dos anos 2008 até então.
@@ -41,8 +41,20 @@ def livros_por_ano_publi(dataframe):
     more_old = dataframe.query('published_year <= 1940 and published_year >= 1850')
     livros_anos_nota = more_old[['title', 'published_year', 'average_rating']].sort_values('published_year', ascending = True)
     st.dataframe(livros_anos_nota)
-    st.title(''' Livros mais novos.
+    media_antigos = more_old['average_rating'].sum()
+    media_antigos = media_antigos / len(more_old['average_rating'])
+    media_antigos = round(media_antigos, 1)
+    st.title('''
+             Livros mais novos 
              ''')
     more_young = dataframe.query('published_year >= 2008')
     livros_anos_nota = more_young[['title', 'published_year', 'average_rating']].sort_values('published_year', ascending = True)
+    media_novos = more_young['average_rating'].sum()
+    media_novos = media_novos / len(more_young['average_rating'])
+    media_novos = round(media_novos, 1)
     st.dataframe(livros_anos_nota)
+    st.write('''Os livros mais antigos possuem uma média de %s enquanto os livros mais novos %s. Oque responde a nossa pergunta com 'Sim, livros mais antigos possuem uma média de avaliação maior do que os mais atuais.' ''' %(media_antigos, media_novos))
+    medias = [media_antigos, media_novos]
+    chart_data = pd.DataFrame(list(zip(more_old['average_rating'].tolist(), more_young['average_rating'].tolist())),
+    columns = ['Livros mais antigos','Livros mais atuais'])
+    st.area_chart(chart_data)
