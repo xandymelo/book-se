@@ -14,10 +14,10 @@ if __name__ == '__main__':
     dataframe = pd.read_csv("books.csv")
     dataframe = tratamento_df(dataframe)
     sidebar = st.sidebar
-    my_page = st.sidebar.radio('Análises', ['Página inicial 📚' ,'Qual o diferencial dos livros bem avaliados de cada categoria ? 📗', 'Livros por quantidade de páginas 📘', 'Livros por ano de publicação 🗓️'])
+    my_page = st.sidebar.radio('Análises', ['Página inicial 📚' ,'Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗', 'Livros por quantidade de páginas 📘', 'Livros por ano de publicação 🗓️'])
     if my_page == 'Página inicial 📚':
         paginainicial = pagina_inicial(dataframe)
-    if my_page == 'Qual o diferencial dos livros bem avaliados de cada categoria ? 📗':
+    if my_page == 'Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗':
         estudo1 = dif_por_categoria(dataframe)
     if my_page == 'Livros por quantidade de páginas 📘':
         estudo2 = livros_por_pagina(dataframe)
