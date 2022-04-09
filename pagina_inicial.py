@@ -1,6 +1,8 @@
 import streamlit as st
 
-def pagina_inicial(dataframe):
+from df_muito_usados import DfsUsados
+
+def pagina_inicial():
     st.write(""" # Book-se 📚
         Este é um projeto de alunos da faculdade UFRPE, para a cadeira de projeto 3.
         Nesa página vamos mostrar nossos estudos em cima dos dados que vamos
@@ -8,7 +10,7 @@ def pagina_inicial(dataframe):
             recomendações literárias!
         """)
     st.subheader("🏷️Dataframe - Todos os livros")
-    st.dataframe(dataframe)
+    st.dataframe(DfsUsados.dataframe)
     st.subheader("🏷️Dicionário de dados")
     st.code(''' # Dicionário de Dados
 # Books Dataset
@@ -33,3 +35,7 @@ def pagina_inicial(dataframe):
 | Num_pages | Int | 6 | Numero de paginas do livro. |
 | Rating_count | Int | 6 | Quantidade de avaliações do livro. |
 ''')
+    st.subheader("🏷️Termos")
+    st.subheader('''Livros bem Avaliados
+    são os livros que estão com a avaliação acima da avaliação média (3.9084)''')
+    st.dataframe(DfsUsados.livros_bem_avaliados)
