@@ -1,3 +1,4 @@
+from autores import autores_relacao
 import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -14,7 +15,7 @@ from livros_por_pag import livros_por_quantidade_de_pag
     
 if __name__ == '__main__':
     sidebar = st.sidebar
-    my_page = sidebar.radio('Análises', ['Página inicial 📚' ,'P1 - Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗', 'P2 - Avaliação dos livros bem avaliados em relação a quantidade de páginas 📘', 'P2 - Avaliação dos livros bem avaliados em relação ao ano de publicação 🗓️', 'P2 - Avaliação dos livros bem avaliados em relação a categoria 📂'])
+    my_page = sidebar.radio('Análises', ['Página inicial 📚' ,'P1 - Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗', 'P2 - Avaliação dos livros bem avaliados em relação a quantidade de páginas 📘', 'P2 - Avaliação dos livros bem avaliados em relação ao ano de publicação 🗓️', 'P2 - Avaliação dos livros bem avaliados em relação a categoria 📂', 'P2 - Qual a relação entre as caracteristicas de um autor e suas avaliações? ✍️'])
     if my_page == 'Página inicial 📚':
         paginainicial = pagina_inicial()
     if my_page == 'P1 - Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗':
@@ -25,3 +26,5 @@ if __name__ == '__main__':
         estudo3 = livros_por_ano_publi()
     if my_page == 'P2 - Avaliação dos livros bem avaliados em relação a categoria 📂':
         estudo4 =  Livros_por_categoria()
+    if my_page == 'P2 - Qual a relação entre as caracteristicas de um autor e suas avaliações? ✍️':
+        estudo5 =  autores_relacao()    
