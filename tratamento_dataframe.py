@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 def tratamento_df(dataframe):
     dataframe['num_pages'].fillna(0, inplace=True)
     dataframe['num_pages'] = dataframe['num_pages'].astype('int')
