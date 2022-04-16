@@ -27,4 +27,4 @@ if __name__ == '__main__':
     if my_page == 'P1 - Avaliação dos livros bem avaliados em relação a categoria 📂':
         estudo4 =  Livros_por_categoria()
     if my_page == 'P2 - Qual a relação entre as caracteristicas de um autor e suas avaliações? ✍️':
-        estudo5 =  autores_relacao()    
+        estudo5 =  autores_relacao()
