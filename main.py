@@ -18,13 +18,13 @@ if __name__ == '__main__':
     my_page = sidebar.radio('Análises', ['Página inicial 📚' ,'P3 - Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗', 'P1 - Avaliação dos livros bem avaliados em relação a quantidade de páginas 📘', 'P1 - Avaliação dos livros bem avaliados em relação ao ano de publicação 🗓️', 'P1 - Avaliação dos livros bem avaliados em relação a categoria 📂', 'P2 - Qual a relação entre as caracteristicas de um autor e suas avaliações? ✍️'])
     if my_page == 'Página inicial 📚':
         paginainicial = pagina_inicial()
-    if my_page == 'P1 - Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗':
+    if my_page == 'P3 - Qual dado é o mais importante na nota do livro das categorias mais bem avaliadas? 📗':
         estudo1 = dif_por_categoria()
-    if my_page == 'P2 - Avaliação dos livros bem avaliados em relação a quantidade de páginas 📘':
+    if my_page == 'P1 - Avaliação dos livros bem avaliados em relação a quantidade de páginas 📘':
         estudo2 = livros_por_quantidade_de_pag()
-    if my_page == 'P2 - Avaliação dos livros bem avaliados em relação ao ano de publicação 🗓️':
+    if my_page == 'P1 - Avaliação dos livros bem avaliados em relação ao ano de publicação 🗓️':
         estudo3 = livros_por_ano_publi()
-    if my_page == 'P2 - Avaliação dos livros bem avaliados em relação a categoria 📂':
+    if my_page == 'P1 - Avaliação dos livros bem avaliados em relação a categoria 📂':
         estudo4 =  Livros_por_categoria()
     if my_page == 'P2 - Qual a relação entre as caracteristicas de um autor e suas avaliações? ✍️':
         estudo5 =  autores_relacao()    
