@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../components/button.dart';
 import '../components/editor.dart';
+import 'cadastro.dart';
 
 const _titulo = '• Book-se •';
 const _nomeCampoEmail = 'E-mail';
@@ -59,15 +60,9 @@ class Login extends StatelessWidget {
               textInput: TextInputType.visiblePassword,
               obscureText: true,
             ),
-            SizedBox(
-              width: double.maxFinite,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text(_textoBotaoLogin),
-              ),
-            ),
+            Botao(buttonText: _textoBotaoLogin, onClick: () {},),
             InkWell(
-              onTap: () => print('clicked create account'),
+              onTap: () => _showCadastroScreen(context),
               child: Text(
                 _textoHyperLinkCreateAccount,
                 style: TextStyle(
@@ -85,7 +80,7 @@ class Login extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => print('clicked privacidade'),
+              onTap: () => print('clicked Privacy'),
               child: Text(
                 _textoPrivacy,
                 style: TextStyle(
@@ -98,4 +93,14 @@ class Login extends StatelessWidget {
       ),
     );
   }
+}
+
+_showCadastroScreen(BuildContext context) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) {
+        return Cadastro();
+      },
+    ),
+  );
 }

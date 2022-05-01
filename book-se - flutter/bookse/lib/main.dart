@@ -1,3 +1,4 @@
+import 'package:bookse/screens/cadastro.dart';
 import 'package:bookse/screens/login.dart';
 import 'package:flutter/material.dart';
 
