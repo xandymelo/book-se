@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             secondary: Colors.purple[800],
           )
       ),
-      home: Login(),
+      home: Cadastro(),
     );
   }
 }
