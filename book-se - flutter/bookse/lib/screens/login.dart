@@ -52,6 +52,7 @@ class Login extends StatelessWidget {
               controller: _email,
               textInput: TextInputType.emailAddress,
               obscureText: false,
+              colorBorder: Colors.purple,
             ),
             Editor(
               labeltext: _nomeCampoSenha,
@@ -59,8 +60,12 @@ class Login extends StatelessWidget {
               controller: _senha,
               textInput: TextInputType.visiblePassword,
               obscureText: true,
+              colorBorder: Colors.purple,
             ),
-            Botao(buttonText: _textoBotaoLogin, onClick: () {},),
+            Botao(
+              buttonText: _textoBotaoLogin,
+              onClick: () {},
+            ),
             InkWell(
               onTap: () => _showCadastroScreen(context),
               child: Text(

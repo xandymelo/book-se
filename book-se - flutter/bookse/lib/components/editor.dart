@@ -8,6 +8,7 @@ class Editor extends StatelessWidget {
   final IconData? icon;
   final TextInputType textInput;
   final bool obscureText;
+  final Color colorBorder;
 
   Editor({
     required this.labeltext,
@@ -15,28 +16,41 @@ class Editor extends StatelessWidget {
     required this.controller,
     required this.textInput,
     required this.obscureText,
+    required this.colorBorder,
     this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: TextField(
-        obscureText: obscureText,
-        controller: controller,
-        style: TextStyle(fontSize: 24.0),
-        decoration: InputDecoration(
-          icon: icon != null ? Icon(icon) : null,
-          labelText: labeltext,
-          hintText: hinttext,
-          fillColor: Colors.purple,
-          focusedBorder:OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.purple, width: 2.0),
-            borderRadius: BorderRadius.circular(25.0),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Visibility(
+            child: Text('Este Campo é obrigatório!', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),),
+            visible: this.colorBorder == Colors.red ? true : false
           ),
-        ),
-        keyboardType: this.textInput,
+          TextField(
+            obscureText: obscureText,
+            controller: controller,
+            style: TextStyle(fontSize: 24.0),
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: this.colorBorder)
+              ),
+              icon: icon != null ? Icon(icon) : null,
+              labelText: labeltext,
+              hintText: hinttext,
+              labelStyle: TextStyle(color: Colors.black,),
+              fillColor: Colors.black,
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: this.colorBorder, width: 2.0),
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+            ),
+            keyboardType: this.textInput,
+          ),
+        ],
       ),
     );
   }

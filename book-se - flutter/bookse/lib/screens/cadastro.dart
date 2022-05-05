@@ -6,7 +6,7 @@ import '../components/editor.dart';
 const _h1 = 'Crie sua conta';
 const _campoNome = 'Primeiro Nome';
 const _dicaCampoNome = 'João';
-const _campoSegundoNome = 'último Nome';
+const _campoSegundoNome = 'Último Nome';
 const _dicaCampoSegundoNome = 'Farias';
 const _campoUsername = 'Username';
 const _dicaCampoUsername = 'joaoGrifinória';
@@ -26,7 +26,14 @@ class Cadastro extends StatefulWidget {
 class _CadastroState extends State<Cadastro> {
   final TextEditingController _nome = TextEditingController();
 
-  final TextEditingController _segundoNome = TextEditingController();
+  late Color _borderColorNome = Colors.purple;
+  late Color _borderColorSegundoNome = Colors.purple;
+  late Color _borderColorUsername = Colors.purple;
+  late Color _borderColorEmail = Colors.purple;
+  late Color _borderColorConfirmaEmail = Colors.purple;
+  late Color _borderColorPassword = Colors.purple;
+  late Color _borderColorConfirmaPassword = Colors.purple;
+  late TextEditingController _segundoNome = TextEditingController();
 
   final TextEditingController _userName = TextEditingController();
 
@@ -45,6 +52,7 @@ class _CadastroState extends State<Cadastro> {
       this._visibleEmail = bool;
     });
   }
+
   void _togglePassword(bool) {
     setState(() {
       this._visiblePassWord = bool;
@@ -63,10 +71,11 @@ class _CadastroState extends State<Cadastro> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-             Text(
+            Text(
               _h1,
               style: TextStyle(
-                fontSize: 44,
+                fontSize: 36,
+                fontWeight: FontWeight.bold
               ),
             ),
             Editor(
@@ -75,6 +84,7 @@ class _CadastroState extends State<Cadastro> {
               controller: _nome,
               textInput: TextInputType.name,
               obscureText: false,
+              colorBorder: this._borderColorNome,
             ),
             Editor(
               labeltext: _campoSegundoNome,
@@ -82,6 +92,7 @@ class _CadastroState extends State<Cadastro> {
               controller: _segundoNome,
               textInput: TextInputType.name,
               obscureText: false,
+              colorBorder: this._borderColorSegundoNome,
             ),
             Editor(
               labeltext: _campoUsername,
@@ -89,6 +100,7 @@ class _CadastroState extends State<Cadastro> {
               controller: _userName,
               textInput: TextInputType.name,
               obscureText: false,
+              colorBorder: this._borderColorUsername,
             ),
             Editor(
               labeltext: _campoEmail,
@@ -96,6 +108,7 @@ class _CadastroState extends State<Cadastro> {
               controller: _email,
               textInput: TextInputType.name,
               obscureText: false,
+              colorBorder: this._borderColorEmail,
             ),
             Visibility(
               child: Text('Os e-mails estão diferentes!'),
@@ -106,14 +119,14 @@ class _CadastroState extends State<Cadastro> {
               hinttext: _dicaCampoEmail,
               controller: _confirmaEmail,
               textInput: TextInputType.name,
-              obscureText: false,
+              obscureText: false, colorBorder: this._borderColorConfirmaEmail,
             ),
             Editor(
               labeltext: _campoPassword,
               hinttext: _dicaCampoPassword,
               controller: _password,
               textInput: TextInputType.visiblePassword,
-              obscureText: false,
+              obscureText: false, colorBorder: this._borderColorPassword,
             ),
             Visibility(
               child: Text('As senhas estão diferentes!'),
@@ -124,29 +137,54 @@ class _CadastroState extends State<Cadastro> {
               hinttext: _dicaCampoPassword,
               controller: _confirmaPassword,
               textInput: TextInputType.visiblePassword,
-              obscureText: false,
+              obscureText: false, colorBorder: this._borderColorConfirmaPassword,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Botao( buttonText: _textoBotao, onClick: () {
-                  if ( this._email.text.toString() != this._confirmaEmail.text.toString() ) {
-                      debugPrint(this._email.text);
-                      debugPrint(this._confirmaEmail.text);
-                      setState(() => _toggleEmail(true));
-                    } else {
+              padding: const EdgeInsets.all(16.0),
+              child: Botao(
+                buttonText: _textoBotao,
+                onClick: () {
+                  if (this._nome.text.toString() == "") {
+                    this._borderColorNome = Colors.red;
+                  }
+                  if (this._segundoNome.text.toString() == "") {
+                    this._borderColorSegundoNome = Colors.red;
+                  }
+                  if (this._userName.text.toString() == "") {
+                    this._borderColorUsername = Colors.red;
+                  }
+                  if (this._email.text.toString() == "") {
+                    this._borderColorEmail = Colors.red;
+                  }
+                  if (this._confirmaEmail.text.toString() == "") {
+                    this._borderColorConfirmaEmail = Colors.red;
+                  }
+                  if (this._password.text.toString() == "") {
+                    this._borderColorPassword = Colors.red;
+                  }
+                  if (this._confirmaPassword .text.toString() == "") {
+                    this._borderColorConfirmaPassword = Colors.red;
+                  }
+                  if (this._email.text.toString() !=
+                      this._confirmaEmail.text.toString()) {
+                    debugPrint(this._email.text);
+                    debugPrint(this._confirmaEmail.text);
+                    setState(() => _toggleEmail(true));
+                  } else {
                     setState(() => _toggleEmail(false));
                   }
-                  if ( this._password.text.toString() != this._confirmaPassword.text.toString() ) {
+                  if (this._password.text.toString() !=
+                      this._confirmaPassword.text.toString()) {
                     setState(() => _togglePassword(true));
                   } else {
                     setState(() => _togglePassword(false));
                   }
-                  if ( this._visiblePassWord == false && this._visiblePassWord == false ) {
+                  if (this._visiblePassWord == false &&
+                      this._visiblePassWord == false) {
                     setState(() {
                       debugPrint('navegar para próxima tela!');
                     });
                   }
-
                 },
               ),
             ),

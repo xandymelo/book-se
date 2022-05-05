@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dd7cc6d-7423-4f6b-8318-faa82971cca1" name="Changes" comment="" />
+    <list default="true" id="4dd7cc6d-7423-4f6b-8318-faa82971cca1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/editor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/editor.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/cadastro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/cadastro.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/login.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,15 +28,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/Users/xandy/OneDrive/Livros PDF/GitHub/book-se",
-    "settings.editor.selected.configurable": "dart.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xandy/OneDrive/Livros PDF/GitHub/book-se&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;dart.settings&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
