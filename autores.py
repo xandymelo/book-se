@@ -4,44 +4,64 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 import pandas as pd
+import sys
+sys.setrecursionlimit(10000)
+
+dataframe = DfsUsados().dataframe
+
+
+'''Variaveis para armazenar as médias gerais '''
+autores = dataframe[['authors']]
+quantidades_pages = []
+quantidades_livros = []
+medias_geral = []
+#Media geral de quantidade de paginas
+media_geral_pages = 0
+#Media geral da quantidade de livros
+media_geral_livros = 0
+#Media geral de avaliação 
+medias_geral_value = 0 
+
+
+medias_baixa = []
+pages_baixa = []
+livros_baixa = []
+medias_altas = []
+pages_altas = []
+livros_altas = []
+medias_altas_avaliacoes = 0
+medias_altas_pages = 0
+medias_altas_livros = 0   
+medias_baixas_avaliacoes = 0
+medias_baixas_pages = 0
+medias_baixas_livros = 0  
 
 def autores_relacao():
-    
-    dataframe = DfsUsados().dataframe
+    global medias_geral, quantidades_livros, quantidades_pages, media_geral_livros, media_geral_pages, medias_geral_value, medias_baixa, medias_altas, medias_baixas_avaliacoes, medias_altas_avaliacoes, medias_baixas_livros, medias_altas_livros, medias_altas_pages, medias_baixas_pages, pages_altas, livros_altas, pages_baixa, medias_baixas_livros
 
-    autores = dataframe[['authors']]
-    quantidades = []
-      
-    '''Variaveis para armazenar as médias gerais '''
-    autores = dataframe[['authors']]
-    quantidades_pages = []
-    quantidades_livros = []
-    medias_geral = []
-    #Media geral de quantidade de paginas
-    media_geral_pages = 0
-    #Media geral da quantidade de livros
-    media_geral_livros = 0
-    #Media geral de avaliação 
-    medias_geral_value = 0 
     
-    for i in autores:
-        for j in range(len(autores)):
-            if isinstance(autores[i][j], str):
-                autor = autores[i][j].replace('"',"")
-                livros = dataframe.query('authors == "' + autor+'"')
-                
-                                
-                soma = sum(int(i) for i in livros[['num_pages']].values)
-                
+    
+
+    def run_in_autores(autor, i):
+
+        global medias_geral, quantidades_livros, quantidades_pages 
+       
+
+        if i < len(autor):
+
+            if isinstance(autor[i], str):
+
+                autor_n = autor[i].replace('"', "")
+                livros = dataframe.query('authors == "'+ autor_n + '"')
+                soma = sum(int(k) for k in livros[['num_pages']].values)
                 if len(livros[['num_pages' ]].values) > 0:
-                    
-                    media_pages = soma/len(livros[['num_pages' ]].values)
+                    media_pages = soma/len(livros[['num_pages']].values)
                 else:
                     media_pages = soma
                 quantidades_pages.append(media_pages)
-                
+
                 soma = sum(float(i) for i in livros[['average_rating']].values)
-                
+
                 if len(livros[['average_rating']].values) > 0:
                     medias_autor = soma / len(livros[['average_rating']].values)
                 else:
@@ -50,30 +70,41 @@ def autores_relacao():
                 medias_geral.append(medias_autor)
                 qnt_livros = len(livros[['title']].values)
                 quantidades_livros.append(qnt_livros)
+            i += 1
+            run_in_autores(autor, i)
+        else:
+            return
+        return
+
+
+    def run_autores(autores, j):
+        global media_geral_livros, media_geral_pages, medias_geral_value
         
-        media_geral_livros = sum(quantidades_livros) / len(quantidades_livros)       
-        media_geral_pages = sum(quantidades_pages) / len(quantidades_pages)
-        medias_geral_value = sum(medias_geral) / len(medias_geral)
-     
+        if j < len(autores):
+            
+            run_in_autores(autores[j], i=0)
+            j+=1
+            run_autores(autores, j)
+
+            media_geral_livros = sum(quantidades_livros) / len(quantidades_livros)       
+            media_geral_pages = sum(quantidades_pages) / len(quantidades_pages)
+            medias_geral_value = sum(medias_geral) / len(medias_geral)
+        else:
+            return 
+
+    print(autores.values)
+    run_autores(autores.values, j=0)
+    print("SAIU DA RECURSIVIDADE")
+    print(media_geral_livros)
      
     '''Variaveis para os autores acima da média de avaliações'''
-    medias_baixa = []
-    pages_baixa = []
-    livros_baixa = []
-    medias_altas = []
-    pages_altas = []
-    livros_altas = []
-    medias_altas_avaliacoes = 0
-    medias_altas_pages = 0
-    medias_altas_livros = 0   
-    medias_baixas_avaliacoes = 0
-    medias_baixas_pages = 0
-    medias_baixas_livros = 0   
-    for i in autores:
-        for j in range(len(autores)):
-            if isinstance(autores[i][j], str):
-                autor = autores[i][j].replace('"',"")
-                livros = dataframe.query('authors == "' + autor+'"')
+
+    def run_in_media(autor, i):
+        global pages_altas, livros_altas, medias_altas, pages_baixa, livros_baixa, medias_baixa
+        if i < len(autor):
+            if isinstance(autor[i], str):
+                autor_n = autor[i].replace('"',"")
+                livros = dataframe.query('authors == "' + autor_n+'"')
                 
                 soma = sum(float(i) for i in livros[['average_rating']].values)
                 if len(livros[['average_rating']].values) > 0:
@@ -105,14 +136,29 @@ def autores_relacao():
                     qnt_livros = len(livros[['title']].values)
                     livros_baixa.append(qnt_livros)
                     medias_baixa.append(avaliacoes)
-                    
-        medias_altas_avaliacoes = sum(medias_altas) / len(medias_altas)
-        medias_altas_pages = sum(pages_altas) / len(pages_altas)
-        medias_altas_livros = sum(livros_altas) / len(livros_altas)
-        
-        medias_baixas_avaliacoes = sum(medias_baixa) / len(medias_baixa)
-        medias_baixas_pages = sum(pages_baixa) / len(pages_baixa)
-        medias_baixas_livros = sum(livros_baixa) / len(livros_baixa)
+            i += 1
+            run_in_media(autor, i)
+        else:
+            return
+        return
+
+    def run_media(autores, j):
+        global medias_altas_avaliacoes, medias_baixas_avaliacoes, medias_altas_pages, medias_altas_livros, medias_baixas_livros, medias_baixas_pages
+        if j < len(autores):
+            run_in_media(autores[j], i = 0)
+            j+=1
+            run_media(autores, j)
+            medias_altas_avaliacoes = sum(medias_altas) / len(medias_altas)
+            medias_altas_pages = sum(pages_altas) / len(pages_altas)
+            medias_altas_livros = sum(livros_altas) / len(livros_altas)
+            
+            medias_baixas_avaliacoes = sum(medias_baixa) / len(medias_baixa)
+            medias_baixas_pages = sum(pages_baixa) / len(pages_baixa)
+            medias_baixas_livros = sum(livros_baixa) / len(livros_baixa)
+        else:
+            return
+
+    run_media(autores.values, j=0)
     
     print(medias_geral_value )
     porcentagem_rating = ((medias_altas_avaliacoes / medias_baixas_avaliacoes) -1) * 100
