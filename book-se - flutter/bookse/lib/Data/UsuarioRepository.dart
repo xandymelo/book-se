@@ -7,13 +7,8 @@ import '../Models/Usuario.dart';
 import '../firebase_options.dart';
 
 class UsuarioRepository {
-  var collection;
-  inicializacao() async {
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform);
-    collection = FirebaseFirestore.instance.collection('Usuarios');
-  }
-
+  var collection = FirebaseFirestore.instance.collection('Usuarios');
+  var retorno;
   @override
   validarUsuario(Usuario usuario) {
     if (usuario.primeiroNome.isEmpty || usuario.primeiroNome == "") {
@@ -28,9 +23,8 @@ class UsuarioRepository {
     if (!EmailValidator.validate(usuario.email)) {
       throw Exception("Email invalio.");
     }
-    if (conferirEmail(usuario.email)) {
-      throw Exception("Esse email já está em uso.");
-    }
+    conferirEmail(usuario.email);
+
     if (usuario.password.isEmpty || usuario.password == "") {
       throw Exception("O campo SENHA é obrigatório.");
     }
@@ -40,26 +34,24 @@ class UsuarioRepository {
     if (usuario.userName.isEmpty || usuario.userName == "") {
       throw Exception("O campo USERNAME é obrigatório.");
     }
-    if (conferirUserName(usuario.userName)) {
+    conferirUserName(usuario.userName);
+  }
+
+  conferirEmail(String email) async {
+    var retorno = await collection.where('E-mail', isEqualTo: email).get();
+    if (retorno.size > 0) {
+      throw Exception("Este email já está em uso.");
+    }
+  }
+
+  conferirUserName(String username) async {
+    var retorno = await collection.doc(username).get();
+    if (retorno.exists) {
       throw Exception("Nome de usuário já está em uso.");
     }
   }
 
-  conferirEmail(String email) async {
-    inicializacao();
-    var retorno = await collection.where('E-mail', isEqualTo: email).get();
-    return retorno.exists;
-  }
-
-  conferirUserName(String username) async {
-    inicializacao();
-    var retorno = await collection.where('NickName', isEqualTo: username).get();
-    return retorno.exists;
-  }
-
   cadastrar(Usuario usuario) async {
-    inicializacao();
-
     validarUsuario(usuario);
 
     await collection.doc(usuario.userName).set({
@@ -68,21 +60,17 @@ class UsuarioRepository {
       "NickName": usuario.userName,
       "E-mail": usuario.email,
       "Password": usuario.password
-    }).then((error) => {throw Exception(error)});
-    return conferirCadastro(usuario.userName);
+    });
+    //return conferirCadastro(usuario.userName);
   }
 
   conferirCadastro(String username) async {
-    inicializacao();
-
     var retorno = await collection.where('NickName', isEqualTo: username).get();
 
-    return retorno.docs.first.length > 0;
+    return retorno;
   }
 
   obter() async {
-    inicializacao();
-
     var retorno = await collection.get();
     List<Usuario> usuarios = [];
     for (var doc in retorno.docs) {
@@ -98,30 +86,26 @@ class UsuarioRepository {
     return usuarios;
   }
 
-  login(String username, String senha) async {
-    inicializacao();
-    var retorno = await collection.where('NickName', isEqualTo: username).get();
-
+  login(String email, String senha) async {
+    var retorno = await collection.where("E-mail", isEqualTo: email).get();
+    print(retorno.docs);
     for (var doc in retorno.docs) {
-      if (doc["NickName"] == username && doc["Password"] == senha) {
+      print("doc");
+      if (doc["Email"].toString() == email &&
+          doc["Password"].toString() == senha) {
+        print(true);
         return true;
-      } else {
-        throw Exception("Senha ou Usuario incorretos.");
       }
     }
+    throw Exception("Senha ou Email incorretos.");
   }
 
   obterSenha(String username) async {
-    inicializacao();
     var retorno = await collection.where('NickName', isEqualTo: username).get();
     return retorno.docs.first["Password"].toString();
   }
 
-  atualizar() {
-    inicializacao();
-  }
+  atualizar() {}
 
-  remover() {
-    inicializacao();
-  }
+  remover() {}
 }

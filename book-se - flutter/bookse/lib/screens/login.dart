@@ -1,7 +1,10 @@
+import 'package:bookse/Data/UsuarioRepository.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
 import '../components/editor.dart';
+import '../firebase_options.dart';
 import 'cadastro.dart';
 
 const _titulo = '• Book-se •';
@@ -18,6 +21,15 @@ const _textoPrivacy = "Privacidade";
 class Login extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _senha = TextEditingController();
+
+  executarLogin() async {
+    bool retorno = false;
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
+    UsuarioRepository().login(_email.text, _senha.text).then((a) => {});
+
+    return retorno;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +76,9 @@ class Login extends StatelessWidget {
             ),
             Botao(
               buttonText: _textoBotaoLogin,
-              onClick: () {},
+              onClick: () {
+                executarLogin().then((a) => {print(a)});
+              },
             ),
             InkWell(
               onTap: () => _showCadastroScreen(context),
@@ -85,7 +99,7 @@ class Login extends StatelessWidget {
               ),
             ),
             InkWell(
-              onTap: () => print('clicked Privacy'),
+              onTap: () => print("privacy"),
               child: Text(
                 _textoPrivacy,
                 style: TextStyle(

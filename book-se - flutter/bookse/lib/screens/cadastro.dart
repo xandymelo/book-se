@@ -1,7 +1,11 @@
+import 'package:bookse/Data/UsuarioRepository.dart';
+import 'package:bookse/Models/Usuario.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../components/button.dart';
 import '../components/editor.dart';
+import '../firebase_options.dart';
 
 const _h1 = 'Crie sua conta';
 const _campoNome = 'Primeiro Nome';
@@ -25,7 +29,7 @@ class Cadastro extends StatefulWidget {
 
 class _CadastroState extends State<Cadastro> {
   final TextEditingController _nome = TextEditingController();
-
+  Usuario usuario = Usuario();
   late Color _borderColorNome = Colors.purple;
   late Color _borderColorSegundoNome = Colors.purple;
   late Color _borderColorUsername = Colors.purple;
@@ -53,6 +57,24 @@ class _CadastroState extends State<Cadastro> {
     });
   }
 
+  executarCadastro(Usuario usuario) async {
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
+    UsuarioRepository().cadastrar(usuario);
+  }
+
+  Usuario montarUsuario() {
+    setState(() {
+      usuario.primeiroNome = _nome.text.toString();
+      usuario.segundoNome = _segundoNome.text.toString();
+      usuario.userName = _userName.text.toString();
+      usuario.email = _email.text.toString();
+      usuario.password = _password.text.toString();
+    });
+
+    return usuario;
+  }
+
   void _togglePassword(bool) {
     setState(() {
       this._visiblePassWord = bool;
@@ -73,10 +95,7 @@ class _CadastroState extends State<Cadastro> {
           children: [
             Text(
               _h1,
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold
-              ),
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             ),
             Editor(
               labeltext: _campoNome,
@@ -119,14 +138,16 @@ class _CadastroState extends State<Cadastro> {
               hinttext: _dicaCampoEmail,
               controller: _confirmaEmail,
               textInput: TextInputType.name,
-              obscureText: false, colorBorder: this._borderColorConfirmaEmail,
+              obscureText: false,
+              colorBorder: this._borderColorConfirmaEmail,
             ),
             Editor(
               labeltext: _campoPassword,
               hinttext: _dicaCampoPassword,
               controller: _password,
               textInput: TextInputType.visiblePassword,
-              obscureText: false, colorBorder: this._borderColorPassword,
+              obscureText: false,
+              colorBorder: this._borderColorPassword,
             ),
             Visibility(
               child: Text('As senhas estão diferentes!'),
@@ -137,7 +158,8 @@ class _CadastroState extends State<Cadastro> {
               hinttext: _dicaCampoPassword,
               controller: _confirmaPassword,
               textInput: TextInputType.visiblePassword,
-              obscureText: false, colorBorder: this._borderColorConfirmaPassword,
+              obscureText: false,
+              colorBorder: this._borderColorConfirmaPassword,
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -162,7 +184,7 @@ class _CadastroState extends State<Cadastro> {
                   if (this._password.text.toString() == "") {
                     this._borderColorPassword = Colors.red;
                   }
-                  if (this._confirmaPassword .text.toString() == "") {
+                  if (this._confirmaPassword.text.toString() == "") {
                     this._borderColorConfirmaPassword = Colors.red;
                   }
                   if (this._email.text.toString() !=
@@ -185,6 +207,8 @@ class _CadastroState extends State<Cadastro> {
                       debugPrint('navegar para próxima tela!');
                     });
                   }
+                  montarUsuario();
+                  executarCadastro(usuario);
                 },
               ),
             ),

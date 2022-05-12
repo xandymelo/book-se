@@ -16,12 +16,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch(
-            primarySwatch: Colors.purple,
-          ).copyWith(
-            secondary: Colors.purple[800],
-          )
-      ),
-      home: Cadastro(),
+        primarySwatch: Colors.purple,
+      ).copyWith(
+        secondary: Colors.purple[800],
+      )),
+      home: Login(),
     );
   }
 }
