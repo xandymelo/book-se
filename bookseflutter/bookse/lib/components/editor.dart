@@ -27,11 +27,12 @@ class Editor extends StatelessWidget {
       child: Column(
         children: [
           Visibility(
-            child: Text('Este Campo é obrigatório!', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),),
+            child: Text('Este Campo é obrigatório!', style: TextStyle(color: Colors.red),),
             visible: this.colorBorder == Colors.red ? true : false
           ),
           TextField(
             obscureText: obscureText,
+            enableSuggestions: false,
             controller: controller,
             style: TextStyle(fontSize: 24.0),
             decoration: InputDecoration(
@@ -48,6 +49,7 @@ class Editor extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15.0),
               ),
             ),
+
             keyboardType: this.textInput,
           ),
         ],

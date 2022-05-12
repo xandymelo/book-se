@@ -5,12 +5,110 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dd7cc6d-7423-4f6b-8318-faa82971cca1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/book-se.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/book-se.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/button.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/editor.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/editor.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/cadastro.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/cadastro.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/kotlin/com/example/bookse/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/ios/firebase_app_id_file.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/Data/IRepository.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/Data/UsuarioRepository.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/Models/Usuario copy.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/Models/Usuario.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/button.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/components/editor.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/firebase_options.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/cadastro.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/lib/screens/login.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/icons/Icon-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/icons/Icon-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/icons/Icon-maskable-192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/icons/Icon-maskable-512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/web/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/flutter/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/flutter/generated_plugin_registrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/flutter/generated_plugins.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/Runner.rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/flutter_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/flutter_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/resource.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/resources/app_icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/runner.exe.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/utils.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/utils.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/win32_window.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-se - flutter/bookse/windows/runner/win32_window.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

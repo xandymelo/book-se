@@ -75,7 +75,6 @@ class _CadastroState extends State<Cadastro> {
               _h1,
               style: TextStyle(
                 fontSize: 36,
-                fontWeight: FontWeight.bold
               ),
             ),
             Editor(
@@ -119,14 +118,16 @@ class _CadastroState extends State<Cadastro> {
               hinttext: _dicaCampoEmail,
               controller: _confirmaEmail,
               textInput: TextInputType.name,
-              obscureText: false, colorBorder: this._borderColorConfirmaEmail,
+              obscureText: false,
+              colorBorder: this._borderColorConfirmaEmail,
             ),
             Editor(
               labeltext: _campoPassword,
               hinttext: _dicaCampoPassword,
               controller: _password,
               textInput: TextInputType.visiblePassword,
-              obscureText: false, colorBorder: this._borderColorPassword,
+              obscureText: true,
+              colorBorder: this._borderColorPassword,
             ),
             Visibility(
               child: Text('As senhas estão diferentes!'),
@@ -136,8 +137,9 @@ class _CadastroState extends State<Cadastro> {
               labeltext: _campoConfirmaPassword,
               hinttext: _dicaCampoPassword,
               controller: _confirmaPassword,
-              textInput: TextInputType.visiblePassword,
-              obscureText: false, colorBorder: this._borderColorConfirmaPassword,
+              textInput: TextInputType.text,
+              obscureText: true,
+              colorBorder: this._borderColorConfirmaPassword,
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -162,7 +164,7 @@ class _CadastroState extends State<Cadastro> {
                   if (this._password.text.toString() == "") {
                     this._borderColorPassword = Colors.red;
                   }
-                  if (this._confirmaPassword .text.toString() == "") {
+                  if (this._confirmaPassword.text.toString() == "") {
                     this._borderColorConfirmaPassword = Colors.red;
                   }
                   if (this._email.text.toString() !=
