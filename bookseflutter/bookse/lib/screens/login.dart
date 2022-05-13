@@ -24,16 +24,16 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
-        child: AppBar(
-          centerTitle: true,
-          title: Text(
-            _titulo,
-            style: TextStyle(
-              fontSize: 36,
-            ),
+      child: AppBar(
+        centerTitle: true,
+        title: Text(
+          _titulo,
+          style: TextStyle(
+            fontSize: 36,
           ),
         ),
       ),
+    ),
       body: SingleChildScrollView(
         child: Column(
           children: [
