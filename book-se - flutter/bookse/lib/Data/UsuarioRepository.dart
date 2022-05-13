@@ -77,8 +77,8 @@ class UsuarioRepository {
       Usuario usuario = Usuario();
       usuario.primeiroNome = doc["Primeiro Nome"].toString();
       usuario.segundoNome = doc["Segundo Nome"].toString();
-      usuario.userName = doc["NickNAme"].toString();
-      usuario.email = doc["Email"].toString();
+      usuario.userName = doc["NickName"].toString();
+      usuario.email = doc["E-mail"].toString();
       usuario.password = doc["Password"].toString();
       usuarios.add(usuario);
     }
@@ -87,22 +87,15 @@ class UsuarioRepository {
   }
 
   login(String email, String senha) async {
+    conferirEmail(email);
     var retorno = await collection.where("E-mail", isEqualTo: email).get();
-    print(retorno.docs);
     for (var doc in retorno.docs) {
-      print("doc");
-      if (doc["Email"].toString() == email &&
+      if (doc["E-mail"].toString() == email &&
           doc["Password"].toString() == senha) {
-        print(true);
         return true;
       }
     }
     throw Exception("Senha ou Email incorretos.");
-  }
-
-  obterSenha(String username) async {
-    var retorno = await collection.where('NickName', isEqualTo: username).get();
-    return retorno.docs.first["Password"].toString();
   }
 
   atualizar() {}
