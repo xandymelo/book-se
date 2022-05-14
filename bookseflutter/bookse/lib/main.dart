@@ -3,6 +3,8 @@ import 'package:bookse/screens/home.dart';
 import 'package:bookse/screens/login.dart';
 import 'package:flutter/material.dart';
 
+import 'NavBar.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
             secondary: Colors.purple[800],
           )
       ),
-      home: Home(),
+      home: NavBar(),
     );
   }
 }
