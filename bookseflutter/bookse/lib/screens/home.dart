@@ -1,4 +1,9 @@
+import 'package:bookse/screens/cadastro.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+
+import '../Models/UserBooksData.dart';
+import 'login.dart';
 
 const _titulo = '• Book-se •';
 
@@ -11,15 +16,19 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final title = 'O livro da loucura';
-  final thumbmail = 'http://books.google.com/books/content?id=KQZCPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api';
-  final dataGraphic = [
-    {'categoria': 'Terror', 'QuantidadeLivrosLidos': 5},
-    {'categoria': 'Comédia',  'QuantidadeLivrosLidos': 20},
-    {'categoria': 'Sci-fi',  'QuantidadeLivrosLidos': 36},
-    {'categoria': 'Fantasia',  'QuantidadeLivrosLidos': 10},
-    {'categoria': 'Drama',  'QuantidadeLivrosLidos': 10},
-    {'categoria': 'Policial',  'QuantidadeLivrosLidos': 20},
-  ];
+  final thumbmail =
+      'http://books.google.com/books/content?id=KQZCPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api';
+  late List<UserBooksData> _chartData = getChartData();
+
+  List<UserBooksData> getChartData() {
+    final List<UserBooksData> chartData = [
+      UserBooksData('terror', 20),
+      UserBooksData('comédia', 5),
+      UserBooksData('Policial', 3),
+      UserBooksData('Sci-fi', 32),
+    ];
+    return chartData;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +80,17 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
+              ),
+            ),
+            SizedBox(
+              child: SfCartesianChart(
+                primaryXAxis: CategoryAxis(),
+                series: <ChartSeries>[
+                  LineSeries<UserBooksData, dynamic>(
+                      dataSource: _chartData,
+                      xValueMapper: (UserBooksData data, _) => data.categoria,
+                      yValueMapper: (dynamic data, _) => data.livrosLidos)
+                ],
               ),
             ),
           ],
