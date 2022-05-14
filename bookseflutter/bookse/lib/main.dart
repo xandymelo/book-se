@@ -2,6 +2,7 @@ import 'package:bookse/screens/cadastro.dart';
 import 'package:bookse/screens/home.dart';
 import 'package:bookse/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:bookse/Controller/Controllers.dart' as controller;
 
 void main() {
   runApp(MyApp());
@@ -10,8 +11,9 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
+
+  // This widget is the root of your application.
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
@@ -21,9 +23,9 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.purple,
           ).copyWith(
             secondary: Colors.purple[800],
-          )
-      ),
-      home: Home(),
+          )),
+      home: Login(),
+      onGenerateRoute: controller.controller,
     );
   }
 }
