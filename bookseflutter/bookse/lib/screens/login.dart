@@ -1,5 +1,8 @@
+import 'package:bookse/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:bookse/Controller/Controllers.dart' as controller;
+import '../Data/UsuarioRepository.dart';
 import '../components/button.dart';
 import '../components/editor.dart';
 import 'cadastro.dart';
@@ -18,6 +21,12 @@ const _textoPrivacy = "Privacidade";
 class Login extends StatelessWidget {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _senha = TextEditingController();
+
+  executarLogin() async {
+    await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform);
+    return UsuarioRepository().login(_email.text, _senha.text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,10 +75,15 @@ class Login extends StatelessWidget {
             ),
             Botao(
               buttonText: _textoBotaoLogin,
-              onClick: () {},
+              onClick: () {
+                executarLogin().then((a) => {
+                      if (a == true)
+                        {Navigator.pushNamed(context, controller.homePage)}
+                    });
+              },
             ),
             InkWell(
-              onTap: () => _showCadastroScreen(context),
+              onTap: () => {Navigator.pushNamed(context, controller.cadastro)},
               child: Text(
                 _textoHyperLinkCreateAccount,
                 style: TextStyle(

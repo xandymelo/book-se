@@ -1,7 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+import '../Data/UsuarioRepository.dart';
+import '../Models/Usuario.dart';
 import '../components/button.dart';
 import '../components/editor.dart';
+import '../firebase_options.dart';
+import 'package:bookse/Controller/Controllers.dart' as controller;
 
 const _h1 = 'Crie sua conta';
 const _campoNome = 'Primeiro Nome';
@@ -46,6 +51,7 @@ class _CadastroState extends State<Cadastro> {
   final TextEditingController _confirmaPassword = TextEditingController();
   bool _visibleEmail = false;
   bool _visiblePassWord = false;
+  var usuario = Usuario();
 
   void _toggleEmail(bool) {
     setState(() {
@@ -57,6 +63,33 @@ class _CadastroState extends State<Cadastro> {
     setState(() {
       this._visiblePassWord = bool;
     });
+  }
+
+  executarCadastro(Usuario usuario) {
+    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    return UsuarioRepository().cadastrar(usuario);
+  }
+
+  validarUsuarioCad(Usuario usuario) async {
+    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    await UsuarioRepository().validarUsuario(usuario);
+  }
+
+  validarCadastro(String username) {
+    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    return UsuarioRepository().conferirCadastro(usuario.userName);
+  }
+
+  Usuario montarUsuario() {
+    setState(() {
+      usuario.primeiroNome = _nome.text.toString();
+      usuario.segundoNome = _segundoNome.text.toString();
+      usuario.userName = _userName.text.toString();
+      usuario.email = _email.text.toString();
+      usuario.password = _password.text.toString();
+    });
+
+    return usuario;
   }
 
   @override
@@ -152,7 +185,7 @@ class _CadastroState extends State<Cadastro> {
               padding: const EdgeInsets.all(16.0),
               child: Botao(
                 buttonText: _textoBotao,
-                onClick: () {
+                onClick: () async {
                   if (this._nome.text.toString() == "") {
                     this._borderColorNome = Colors.red;
                   }
@@ -193,6 +226,13 @@ class _CadastroState extends State<Cadastro> {
                     setState(() {
                       debugPrint('navegar para próxima tela!');
                     });
+                  }
+                  montarUsuario();
+                  await validarUsuarioCad(usuario);
+
+                  var retorno = executarCadastro(usuario);
+                  if (retorno == true) {
+                    Navigator.pushNamed(context, controller.login);
                   }
                 },
               ),
