@@ -1,4 +1,3 @@
-import 'dart:js';
 
 import 'package:bookse/screens/cadastro.dart';
 import 'package:flutter/material.dart';
