@@ -34,7 +34,7 @@ class BookScreen extends StatelessWidget {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Image.network(_temporaryImage),
                   ),
                   Container(
@@ -53,7 +53,6 @@ class BookScreen extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   height: 50,
-
                   child: Center(
                     child: Text(
                       'Avaliação: ${_temporaryRating}',
@@ -63,6 +62,25 @@ class BookScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.purple,
                     borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              Text('Anotações'),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Container(
+                  // width: double.infinity,
+                  // height: double.infinity,
+                  child: TextField(
+                    maxLines: 4,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.purple),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.purple),
+                      ),
+                    ),
                   ),
                 ),
               ),
