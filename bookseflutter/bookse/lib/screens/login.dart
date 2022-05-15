@@ -24,16 +24,16 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
-      child: AppBar(
-        centerTitle: true,
-        title: Text(
-          _titulo,
-          style: TextStyle(
-            fontSize: 36,
+        child: AppBar(
+          centerTitle: true,
+          title: Text(
+            _titulo,
+            style: TextStyle(
+              fontSize: 36,
+            ),
           ),
         ),
       ),
-    ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -53,6 +53,7 @@ class Login extends StatelessWidget {
               textInput: TextInputType.emailAddress,
               obscureText: false,
               colorBorder: Colors.purple,
+              onSubmited: (String) {},
             ),
             Editor(
               labeltext: _nomeCampoSenha,
@@ -61,6 +62,7 @@ class Login extends StatelessWidget {
               textInput: TextInputType.visiblePassword,
               obscureText: true,
               colorBorder: Colors.purple,
+              onSubmited: (String) {},
             ),
             Botao(
               buttonText: _textoBotaoLogin,

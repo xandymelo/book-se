@@ -4,4 +4,7 @@ class Usuario {
   late String userName;
   late String email;
   late String password;
+
+  Usuario(this.primeiroNome, this.segundoNome, this.userName, this.email,
+      this.password);
 }

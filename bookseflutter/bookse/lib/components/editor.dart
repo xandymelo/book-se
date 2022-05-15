@@ -9,6 +9,7 @@ class Editor extends StatelessWidget {
   final TextInputType textInput;
   final bool obscureText;
   final Color colorBorder;
+  late Function(String) onSubmited;
 
   Editor({
     required this.labeltext,
@@ -18,6 +19,7 @@ class Editor extends StatelessWidget {
     required this.obscureText,
     required this.colorBorder,
     this.icon,
+    required this.onSubmited,
   });
 
   @override
@@ -31,6 +33,8 @@ class Editor extends StatelessWidget {
             visible: this.colorBorder == Colors.red ? true : false
           ),
           TextField(
+            textInputAction: TextInputAction.go,
+            onSubmitted: onSubmited,
             obscureText: obscureText,
             enableSuggestions: false,
             controller: controller,

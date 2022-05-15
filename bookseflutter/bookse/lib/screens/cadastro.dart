@@ -84,6 +84,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.name,
               obscureText: false,
               colorBorder: this._borderColorNome,
+              onSubmited: (String) {},
             ),
             Editor(
               labeltext: _campoSegundoNome,
@@ -92,6 +93,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.name,
               obscureText: false,
               colorBorder: this._borderColorSegundoNome,
+              onSubmited: (String) {},
             ),
             Editor(
               labeltext: _campoUsername,
@@ -100,6 +102,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.name,
               obscureText: false,
               colorBorder: this._borderColorUsername,
+              onSubmited: (String) {},
             ),
             Editor(
               labeltext: _campoEmail,
@@ -108,6 +111,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.name,
               obscureText: false,
               colorBorder: this._borderColorEmail,
+              onSubmited: (String) {},
             ),
             Visibility(
               child: Text('Os e-mails estão diferentes!'),
@@ -120,6 +124,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.name,
               obscureText: false,
               colorBorder: this._borderColorConfirmaEmail,
+              onSubmited: (String) {},
             ),
             Editor(
               labeltext: _campoPassword,
@@ -128,6 +133,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.visiblePassword,
               obscureText: true,
               colorBorder: this._borderColorPassword,
+              onSubmited: (String) {},
             ),
             Visibility(
               child: Text('As senhas estão diferentes!'),
@@ -140,6 +146,7 @@ class _CadastroState extends State<Cadastro> {
               textInput: TextInputType.text,
               obscureText: true,
               colorBorder: this._borderColorConfirmaPassword,
+              onSubmited: (String) {},
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
