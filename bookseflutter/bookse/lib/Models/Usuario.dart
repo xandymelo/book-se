@@ -4,4 +4,5 @@ class Usuario {
   late String userName;
   late String email;
   late String password;
+
 }

@@ -62,6 +62,7 @@ class Login extends StatelessWidget {
               textInput: TextInputType.emailAddress,
               obscureText: false,
               colorBorder: Colors.purple,
+              onSubmited: (String) {},
             ),
             Editor(
               labeltext: _nomeCampoSenha,
@@ -70,6 +71,7 @@ class Login extends StatelessWidget {
               textInput: TextInputType.visiblePassword,
               obscureText: true,
               colorBorder: Colors.purple,
+              onSubmited: (String) {},
             ),
             Botao(
               buttonText: _textoBotaoLogin,

@@ -1,3 +1,4 @@
+import 'package:bookse/screens/BookScreen.dart';
 import 'package:bookse/screens/cadastro.dart';
 import 'package:bookse/screens/home.dart';
 import 'package:bookse/screens/login.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           ).copyWith(
             secondary: Colors.purple[800],
           )),
-      home: NavBar(),
+      home: BookScreen(),
       onGenerateRoute: controller.controller,
     );
   }

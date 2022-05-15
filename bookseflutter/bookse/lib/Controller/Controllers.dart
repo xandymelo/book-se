@@ -1,4 +1,3 @@
-import 'dart:js';
 
 import 'package:bookse/NavBar.dart';
 import 'package:bookse/screens/cadastro.dart';
