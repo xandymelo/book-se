@@ -25,15 +25,9 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.purple,
           ).copyWith(
             secondary: Colors.purple[800],
-<<<<<<< HEAD
           )),
-      home: Login(),
-      onGenerateRoute: controller.controller,
-=======
-          )
-      ),
       home: NavBar(),
->>>>>>> f978f18da36b109d7a7290f6e283842023df7d01
+      onGenerateRoute: controller.controller,
     );
   }
 }
