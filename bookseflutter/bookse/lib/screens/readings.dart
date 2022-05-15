@@ -1,6 +1,8 @@
 import 'package:bookse/Models/books.dart';
+import 'package:bookse/screens/BookScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 
 import '../components/editor.dart';
@@ -43,7 +45,7 @@ class _ReadingState extends State<Reading> {
             'http://books.google.com/books/content?id=KQZCPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
             'descricao',
             1900,
-            4,
+            3,
             2345,
             1234),
         Book(
@@ -56,7 +58,7 @@ class _ReadingState extends State<Reading> {
             'http://books.google.com/books/content?id=KQZCPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
             'descricao',
             1900,
-            4,
+            2,
             2345,
             1234),
       ];
@@ -126,7 +128,20 @@ class _ReadingState extends State<Reading> {
         ),
         tileColor: Colors.purple,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+        onTap: () {_navigateToBook(context, response);},
       ),
     );
   }
+}
+
+void _navigateToBook(BuildContext context, Book response) {
+  SchedulerBinding.instance.addPostFrameCallback((_) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return BookScreen(response);
+        },
+      ),
+    );
+  });
 }
