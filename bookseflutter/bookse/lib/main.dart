@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
           ).copyWith(
             secondary: Colors.purple[800],
           )),
-          home: Reading(),
-          onGenerateRoute: controller.controller,
-          );
+      home: Reading(),
+      onGenerateRoute: controller.controller,
+    );
   }
 }
