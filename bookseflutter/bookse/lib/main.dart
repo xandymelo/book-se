@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           ).copyWith(
             secondary: Colors.purple[800],
           )),
-      home: Settings(),
+      home: Login(),
       onGenerateRoute: controller.controller,
     );
   }
