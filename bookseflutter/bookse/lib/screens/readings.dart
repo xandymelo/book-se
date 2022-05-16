@@ -72,6 +72,7 @@ class _ReadingState extends State<Reading> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
             _titulo,

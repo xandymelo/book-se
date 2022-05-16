@@ -3,6 +3,7 @@ import 'package:bookse/screens/cadastro.dart';
 import 'package:bookse/screens/home.dart';
 import 'package:bookse/screens/login.dart';
 import 'package:bookse/screens/readings.dart';
+import 'package:bookse/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:bookse/Controller/Controllers.dart' as controller;
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           ).copyWith(
             secondary: Colors.purple[800],
           )),
-      home: Reading(),
+      home: Settings(),
       onGenerateRoute: controller.controller,
     );
   }
