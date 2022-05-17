@@ -186,6 +186,7 @@ class _CadastroState extends State<Cadastro> {
               child: Botao(
                 buttonText: _textoBotao,
                 onClick: () async {
+                  var retorno = true;
                   if (this._nome.text.toString() == "") {
                     this._borderColorNome = Colors.red;
                   }
@@ -229,10 +230,11 @@ class _CadastroState extends State<Cadastro> {
                   }
                   montarUsuario();
                   await validarUsuarioCad(usuario);
-
-                  var retorno = executarCadastro(usuario);
-                  if (retorno == true) {
-                    Navigator.pushNamed(context, controller.login);
+                  if (retorno == false) {
+                    retorno = executarCadastro(usuario);
+                    if (retorno == true) {
+                      Navigator.pushNamed(context, controller.login);
+                    }
                   }
                 },
               ),
