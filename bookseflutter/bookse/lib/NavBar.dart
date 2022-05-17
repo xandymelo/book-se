@@ -2,6 +2,7 @@ import 'package:bookse/screens/cadastro.dart';
 import 'package:bookse/screens/home.dart';
 import 'package:bookse/screens/login.dart';
 import 'package:bookse/screens/readings.dart';
+import 'package:bookse/screens/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class _NavBarState extends State<NavBar> {
         children: [
           Home(),
           Reading(),
-          Login(),
+          Settings(),
         ],
         index: _selectedIndex,
       ),

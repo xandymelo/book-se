@@ -17,10 +17,19 @@ const _textoHyperLinkCreateAccount = 'Criar uma conta';
 const _textoHyperLinkForgotPassword = 'Esqueci minha senha';
 const _textoBoasVidas = "Bem Vindo!";
 const _textoPrivacy = "Privacidade";
+var _mensagemErro = 'O e-mail ou a senha estão incorretos';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   final TextEditingController _email = TextEditingController();
+
   final TextEditingController _senha = TextEditingController();
+
+  late bool _erro = false;
 
   executarLogin() async {
     await Firebase.initializeApp(
@@ -34,6 +43,7 @@ class Login extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
             _titulo,
@@ -55,6 +65,13 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
+            Visibility(
+              child: Text(
+                _mensagemErro,
+                style: TextStyle(color: Colors.red),
+              ),
+              visible: _erro,
+            ),
             Editor(
               labeltext: _nomeCampoEmail,
               hinttext: _dicaCampoEmail,
@@ -73,14 +90,28 @@ class Login extends StatelessWidget {
               colorBorder: Colors.purple,
               onSubmited: (String) {},
             ),
-            Botao(
-              buttonText: _textoBotaoLogin,
-              onClick: () {
-                executarLogin().then((a) => {
-                      if (a == true)
-                        {Navigator.pushNamed(context, controller.homePage)}
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Botao(
+                buttonText: _textoBotaoLogin,
+                onClick: () {
+                  executarLogin().then((a) {
+                    debugPrint('teste');
+                    if (_erro == true) {
+                      setState(() {
+                        _erro = false;
+                      });
+                    }
+                    if (a == true) {
+                      Navigator.pushNamed(context, controller.navbar);
+                    }
+                  }).catchError((erro) {
+                    setState(() {
+                      _erro = true;
                     });
-              },
+                  });
+                },
+              ),
             ),
             InkWell(
               onTap: () => {Navigator.pushNamed(context, controller.cadastro)},

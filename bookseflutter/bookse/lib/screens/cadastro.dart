@@ -187,38 +187,52 @@ class _CadastroState extends State<Cadastro> {
                 buttonText: _textoBotao,
                 onClick: () async {
                   var retorno = true;
+                  this._borderColorNome = Colors.purple;
+                  this._borderColorSegundoNome = Colors.purple;
+                  this._borderColorUsername = Colors.purple;
+                  this._borderColorEmail = Colors.purple;
+                  this._borderColorConfirmaEmail = Colors.purple;
+                  this._borderColorPassword = Colors.purple;
+                  this._borderColorConfirmaPassword = Colors.purple;
                   if (this._nome.text.toString() == "") {
                     this._borderColorNome = Colors.red;
+                    retorno = false;
                   }
                   if (this._segundoNome.text.toString() == "") {
                     this._borderColorSegundoNome = Colors.red;
+                    retorno = false;
                   }
                   if (this._userName.text.toString() == "") {
                     this._borderColorUsername = Colors.red;
+                    retorno = false;
                   }
                   if (this._email.text.toString() == "") {
                     this._borderColorEmail = Colors.red;
+                    retorno = false;
                   }
                   if (this._confirmaEmail.text.toString() == "") {
                     this._borderColorConfirmaEmail = Colors.red;
+                    retorno = false;
                   }
                   if (this._password.text.toString() == "") {
                     this._borderColorPassword = Colors.red;
+                    retorno = false;
                   }
                   if (this._confirmaPassword.text.toString() == "") {
                     this._borderColorConfirmaPassword = Colors.red;
+                    retorno = false;
                   }
                   if (this._email.text.toString() !=
                       this._confirmaEmail.text.toString()) {
-                    debugPrint(this._email.text);
-                    debugPrint(this._confirmaEmail.text);
                     setState(() => _toggleEmail(true));
+                    retorno = false;
                   } else {
                     setState(() => _toggleEmail(false));
                   }
                   if (this._password.text.toString() !=
                       this._confirmaPassword.text.toString()) {
                     setState(() => _togglePassword(true));
+                    retorno = false;
                   } else {
                     setState(() => _togglePassword(false));
                   }
@@ -230,7 +244,7 @@ class _CadastroState extends State<Cadastro> {
                   }
                   montarUsuario();
                   await validarUsuarioCad(usuario);
-                  if (retorno == false) {
+                  if (retorno == true) {
                     retorno = executarCadastro(usuario);
                     if (retorno == true) {
                       Navigator.pushNamed(context, controller.login);

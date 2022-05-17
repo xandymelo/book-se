@@ -1,15 +1,13 @@
+import 'package:bookse/Models/books.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-const _titulo = 'Livro';
-const _loremIpsum =
-    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
 
 class BookScreen extends StatelessWidget {
   @override
-  final String _temporaryImage =
-      'http://books.google.com/books/content?id=KQZCPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api';
-  final int _temporaryRating = 4;
+  final Book response;
+
+  BookScreen(this.response);
 
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -19,7 +17,7 @@ class BookScreen extends StatelessWidget {
         child: AppBar(
           centerTitle: true,
           title: Text(
-            _titulo,
+            response.titulo,
             style: TextStyle(
               fontSize: 36,
             ),
@@ -35,14 +33,14 @@ class BookScreen extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: Image.network(_temporaryImage),
+                    child: Image.network(response.thumbmail),
                   ),
                   Container(
                     height: 200,
                     width: 220,
                     child: Scrollbar(
                       child: SingleChildScrollView(
-                        child: Text(_loremIpsum),
+                        child: Text(response.subtitulo),
                       ),
                     ),
                   ),
@@ -55,7 +53,7 @@ class BookScreen extends StatelessWidget {
                   height: 50,
                   child: Center(
                     child: Text(
-                      'Avaliação: ${_temporaryRating}',
+                      'Avaliação: ${response.media_nota}',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

@@ -36,6 +36,7 @@ class _HomeState extends State<Home> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(65),
         child: AppBar(
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
             _titulo,
@@ -68,12 +69,6 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    // Text(
-                    //   this.title,
-                    //   style: TextStyle(
-                    //     color: Colors.white,
-                    //   ),
-                    // ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10.0),
                       child: Image.network(this.thumbmail),
