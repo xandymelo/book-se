@@ -1,8 +1,9 @@
-# Book-se 📚
-  Este é um projeto de alunos da faculdade UFRPE, para a cadeira de projeto 3.
-        Nosso objetivo é o desenvolvimento de um aplicativo de recomendações literarias.
+# Orange - Documentação  
+  Esta seção abordará a documentação do orange no decorrer da implementação dos modelos de machine learning.
 
-        Nesse repositorio iremos armazenas o conteudo da cadeira de Projetos III.
+
+        esse repositorio iremos armazenas o conteudo da cadeira de Projetos III.
+	
 
 
 # Como acessar ao projeto
