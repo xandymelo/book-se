@@ -12,3 +12,19 @@
 		streamlit run main.py
 
 </p>
+
+# Orange
+  Esta seção abordará a documentação do orange no decorrer da implementação dos modelos de machine learning.
+  
+1. **Envio do Dataframe**:
+
+<p>
+	Inicialmente, ao iniciarmos o Orange, escolhemos a opção "new" para um novo documento:
+	
+	![file orange](https://user-images.githubusercontent.com/75483023/169920557-d511555f-53ee-4e1f-81e4-3bf9c6e24fab.png)
+
+	
+
+	
+	
+	
