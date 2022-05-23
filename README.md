@@ -21,7 +21,9 @@
 <p>
 	Inicialmente, ao iniciarmos o Orange, escolhemos a opção "new" para um novo documento:
 	
-	![file orange](https://user-images.githubusercontent.com/75483023/169920557-d511555f-53ee-4e1f-81e4-3bf9c6e24fab.png)
+	
+	![image](https://user-images.githubusercontent.com/75483023/169920895-94697d8b-4538-46c2-8863-a301af22eff0.png)
+
 
 	
 
