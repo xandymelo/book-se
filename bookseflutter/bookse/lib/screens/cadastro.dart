@@ -126,6 +126,7 @@ class _CadastroState extends State<Cadastro> {
               obscureText: false,
               colorBorder: this._borderColorNome,
               onSubmited: (String) {},
+              onChanged: (String) {},
             ),
             Editor(
               labeltext: _campoSegundoNome,
@@ -135,6 +136,7 @@ class _CadastroState extends State<Cadastro> {
               obscureText: false,
               colorBorder: this._borderColorSegundoNome,
               onSubmited: (String) {},
+              onChanged: (String) {},
             ),
             Editor(
               labeltext: _campoUsername,
@@ -144,18 +146,27 @@ class _CadastroState extends State<Cadastro> {
               obscureText: false,
               colorBorder: this._borderColorUsername,
               onSubmited: (String) {},
+              onChanged: (String) {},
             ),
             Editor(
-              labeltext: _campoEmail,
-              hinttext: _dicaCampoEmail,
-              controller: _email,
-              textInput: TextInputType.name,
-              obscureText: false,
-              colorBorder: this._borderColorEmail,
-              onSubmited: (String) {},
-            ),
+                labeltext: _campoEmail,
+                hinttext: _dicaCampoEmail,
+                controller: _email,
+                textInput: TextInputType.name,
+                obscureText: false,
+                colorBorder: this._borderColorEmail,
+                onSubmited: (String) {},
+                onChanged: (String) {
+                  setState(() {
+                    this._visibleEmail =
+                        this._VerificarDuplaDeCampos(_email, _confirmaEmail);
+                  });
+                }),
             Visibility(
-              child: Text('Os e-mails estão diferentes!'),
+              child: Text(
+                'Os e-mails estão diferentes!',
+                style: TextStyle(color: Colors.red),
+              ),
               visible: this._visibleEmail,
             ),
             Visibility(
@@ -170,6 +181,12 @@ class _CadastroState extends State<Cadastro> {
               obscureText: false,
               colorBorder: this._borderColorConfirmaEmail,
               onSubmited: (String) {},
+              onChanged: (String) {
+                setState(() {
+                  this._visibleEmail =
+                      this._VerificarDuplaDeCampos(_email, _confirmaEmail);
+                });
+              },
             ),
             Editor(
               labeltext: _campoPassword,
@@ -179,9 +196,18 @@ class _CadastroState extends State<Cadastro> {
               obscureText: true,
               colorBorder: this._borderColorPassword,
               onSubmited: (String) {},
+              onChanged: (String) {
+                setState(() {
+                  this._visiblePassWord = this
+                      ._VerificarDuplaDeCampos(_password, _confirmaPassword);
+                });
+              },
             ),
             Visibility(
-              child: Text('As senhas estão diferentes!'),
+              child: Text(
+                'As senhas estão diferentes!',
+                style: TextStyle(color: Colors.red),
+              ),
               visible: this._visiblePassWord,
             ),
             Editor(
@@ -192,6 +218,12 @@ class _CadastroState extends State<Cadastro> {
               obscureText: true,
               colorBorder: this._borderColorConfirmaPassword,
               onSubmited: (String) {},
+              onChanged: (String) {
+                setState(() {
+                  this._visiblePassWord = this
+                      ._VerificarDuplaDeCampos(_password, _confirmaPassword);
+                });
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -277,5 +309,15 @@ class _CadastroState extends State<Cadastro> {
         ),
       ),
     );
+  }
+
+  bool _VerificarDuplaDeCampos(
+      TextEditingController controller1, TextEditingController controller2) {
+    if (controller1.text != null && controller2.text != null) {
+      if (controller1.text != controller2.text) {
+        return true;
+      }
+    }
+    return false;
   }
 }

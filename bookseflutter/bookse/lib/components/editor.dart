@@ -6,6 +6,7 @@ class Editor extends StatelessWidget {
   final String hinttext;
   final TextEditingController controller;
   final IconData? icon;
+  final Function(String) onChanged;
   final TextInputType textInput;
   final bool obscureText;
   final Color colorBorder;
@@ -20,19 +21,24 @@ class Editor extends StatelessWidget {
     required this.colorBorder,
     this.icon,
     required this.onSubmited,
+    required this.onChanged,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(bottom: 12.0),
       child: Column(
         children: [
-          Visibility(
-            child: Text('Este Campo é obrigatório!', style: TextStyle(color: Colors.red),),
-            visible: this.colorBorder == Colors.red ? true : false
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Visibility(
+              child: Text('Este Campo é obrigatório!', style: TextStyle(color: Colors.red),),
+              visible: this.colorBorder == Colors.red ? true : false
+            ),
           ),
           TextField(
+            onChanged: onChanged,
             textInputAction: TextInputAction.go,
             onSubmitted: onSubmited,
             obscureText: obscureText,

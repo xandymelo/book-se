@@ -79,7 +79,7 @@ class _LoginState extends State<Login> {
               textInput: TextInputType.emailAddress,
               obscureText: false,
               colorBorder: Colors.purple,
-              onSubmited: (String) {},
+              onSubmited: (String) {}, onChanged: (String ) {  },
             ),
             Editor(
               labeltext: _nomeCampoSenha,
@@ -88,7 +88,7 @@ class _LoginState extends State<Login> {
               textInput: TextInputType.visiblePassword,
               obscureText: true,
               colorBorder: Colors.purple,
-              onSubmited: (String) {},
+              onSubmited: (String) {}, onChanged: (String ) {  },
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -111,6 +111,7 @@ class _LoginState extends State<Login> {
                     });
                   });
                 },
+                icon: Icons.login,
               ),
             ),
             InkWell(

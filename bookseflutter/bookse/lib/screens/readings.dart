@@ -95,7 +95,7 @@ class _ReadingState extends State<Reading> {
               icon: Icons.search,
               onSubmited: (String) {
                 getResponse();
-              },
+              }, onChanged: (String ) {  },
             ),
             _response != null ? _buildResponse() : const SizedBox(),
           ],
