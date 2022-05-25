@@ -8,7 +8,6 @@ import '../firebase_options.dart';
 
 class UsuarioRepository {
   var collection = FirebaseFirestore.instance.collection('Usuarios');
-  var retorno;
 
   validarUsuario(Usuario usuario) async {
     if (usuario.primeiroNome.isEmpty || usuario.primeiroNome == "") {
@@ -40,13 +39,10 @@ class UsuarioRepository {
   conferirEmail(String email) async {
     var retorno = await collection.where('E-mail', isEqualTo: email).get();
 
-    for (var doc in retorno.docs) {
-      print(doc.data());
-    }
-
-    /*if (retorno.size > 0) {
+ 
+    if (retorno.size > 0) {
       throw Exception("Este email já está em uso.");
-    }*/
+    }
   }
 
   conferirUserName(String username) async {
@@ -65,7 +61,6 @@ class UsuarioRepository {
       "E-mail": usuario.email,
       "Password": usuario.password
     });
-    print("cadastrarrrr");
     return true;
   }
 

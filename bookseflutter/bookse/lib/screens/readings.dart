@@ -129,14 +129,14 @@ class _ReadingState extends State<Reading> {
         ),
         tileColor: Colors.purple,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-        onTap: () {_navigateToBook(context, response);},
+        onTap: () {/*_navigateToBook(context, response);*/},
       ),
     );
   }
 }
 
-void _navigateToBook(BuildContext context, Book response) {
-  SchedulerBinding.instance.addPostFrameCallback((_) {
+/*void _navigateToBook(BuildContext context, Book response) {
+  SchedulerBinding.instance?.addPostFrameCallback((a) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
@@ -145,4 +145,4 @@ void _navigateToBook(BuildContext context, Book response) {
       ),
     );
   });
-}
+}*/
