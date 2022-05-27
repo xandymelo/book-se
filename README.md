@@ -3,7 +3,9 @@
         Nosso objetivo é o desenvolvimento de um aplicativo de recomendações literarias.
 
         Nesse repositorio iremos armazenas o conteudo da cadeira de Projetos III.
-
+# Rodar o projeto Flutter
+  Para Rodar o proejto em flutter, use o comando:
+  	flutter run --no-sound-null-safety
 
 # Como acessar ao projeto
 
