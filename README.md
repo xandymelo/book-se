@@ -5,7 +5,7 @@
         Nesse repositorio iremos armazenas o conteudo da cadeira de Projetos III.
 # Rodar o projeto Flutter
   Para Rodar o proejto em flutter, use o comando:
-  	flutter run --no-sound-null-safety
+  	<p>flutter run --no-sound-null-safety</p>
 
 # Como acessar ao projeto
 
