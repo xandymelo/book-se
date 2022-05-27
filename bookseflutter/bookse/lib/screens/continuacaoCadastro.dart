@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:bookse/Controller/Controllers.dart' as controller;
 import '../components/button.dart';
 import '../components/editor.dart';
 
@@ -13,7 +14,7 @@ const _terceiraDicaCampoLivroLido = 'Fundação';
 const _campoCategoria = 'Categoria';
 const _dicaCampoCategoria = 'Terror';
 const _segundaDicaCampoCategoria = 'Policial';
-const _textoBotao = 'Cadastre-se';
+const _textoBotao = 'Pronto!';
 
 class ContinuacaoCadastro extends StatelessWidget {
   final TextEditingController _livroLido = TextEditingController();
@@ -117,7 +118,9 @@ class ContinuacaoCadastro extends StatelessWidget {
                 onChanged: (String) {},
               ),
             ),
-            Botao(onClick: () {}, buttonText: _textoBotao,),
+            Botao(onClick: () {
+              Navigator.pushNamed(context, controller.login);
+            }, buttonText: _textoBotao, icon: Icons.fireplace_sharp,),
           ],
         ),
       ),

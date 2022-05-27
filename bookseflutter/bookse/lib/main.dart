@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           ).copyWith(
             secondary: Colors.purple[800],
           )),
-      home: ContinuacaoCadastro(),
+      home: Login(),
       onGenerateRoute: controller.controller,
     );
   }

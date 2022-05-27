@@ -21,7 +21,7 @@ const _campoConfirmaEmail = 'Confirme seu E-mail';
 const _campoPassword = 'Senha';
 const _dicaCampoPassword = '******';
 const _campoConfirmaPassword = 'Confirme sua Senha';
-const _textoBotao = 'Criar Conta';
+const _textoBotao = 'Continuar';
 
 class Cadastro extends StatefulWidget {
   @override
@@ -217,6 +217,7 @@ class _CadastroState extends State<Cadastro> {
               padding: const EdgeInsets.all(16.0),
               child: Botao(
                 buttonText: _textoBotao,
+                icon: Icons.navigate_next,
                 onClick: () async {
                   var retorno = true;
                   this._borderColorNome = Colors.purple;
@@ -279,7 +280,7 @@ class _CadastroState extends State<Cadastro> {
                   if (retorno == true) {
                     retorno = executarCadastro(usuario);
                     if (retorno == true) {
-                      Navigator.pushNamed(context, controller.login);
+                      Navigator.pushNamed(context, controller.continuacaoCadastro);
                     }
                   }
                 },
