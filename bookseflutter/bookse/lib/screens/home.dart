@@ -1,6 +1,6 @@
 import 'package:bookse/screens/cadastro.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+//import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../Models/UserBooksData.dart';
 import 'login.dart';
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-            SizedBox(
+            /*SizedBox(
               child: SfCartesianChart(
                 primaryXAxis: CategoryAxis(),
                 series: <ChartSeries>[
@@ -87,7 +87,7 @@ class _HomeState extends State<Home> {
                       yValueMapper: (dynamic data, _) => data.livrosLidos)
                 ],
               ),
-            ),
+            ),*/
           ],
         ),
       ),

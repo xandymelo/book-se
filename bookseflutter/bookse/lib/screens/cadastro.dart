@@ -30,7 +30,7 @@ class Cadastro extends StatefulWidget {
 
 class _CadastroState extends State<Cadastro> {
   final TextEditingController _nome = TextEditingController();
-
+  late String _mensagemDeErro = "";
   late Color _borderColorNome = Colors.purple;
   late Color _borderColorSegundoNome = Colors.purple;
   late Color _borderColorUsername = Colors.purple;
@@ -51,7 +51,15 @@ class _CadastroState extends State<Cadastro> {
   final TextEditingController _confirmaPassword = TextEditingController();
   bool _visibleEmail = false;
   bool _visiblePassWord = false;
+  bool _visibleEmailUse = false;
+
   var usuario = Usuario();
+
+  void _toggleEmailUse(bool) {
+    setState(() {
+      this._visibleEmailUse = bool;
+    });
+  }
 
   void _toggleEmail(bool) {
     setState(() {
@@ -160,6 +168,10 @@ class _CadastroState extends State<Cadastro> {
                 style: TextStyle(color: Colors.red),
               ),
               visible: this._visibleEmail,
+            ),
+            Visibility(
+              child: Text(_mensagemDeErro),
+              visible: this._visibleEmailUse,
             ),
             Editor(
               labeltext: _campoConfirmaEmail,
@@ -276,12 +288,18 @@ class _CadastroState extends State<Cadastro> {
                     });
                   }
                   montarUsuario();
-                  await validarUsuarioCad(usuario);
-                  if (retorno == true) {
-                    retorno = executarCadastro(usuario);
+                  try {
+                    await validarUsuarioCad(usuario);
                     if (retorno == true) {
-                      Navigator.pushNamed(context, controller.continuacaoCadastro);
+                      Navigator.pushNamed(
+                          context, controller.continuacaoCadastro);
                     }
+                  } on Exception catch (e) {
+                    _mensagemDeErro =
+                        e.toString().substring(e.toString().indexOf(':') + 1);
+                    this._borderColorConfirmaEmail = Colors.red;
+                    this._borderColorEmail = Colors.red;
+                    _toggleEmailUse(true);
                   }
                 },
               ),
